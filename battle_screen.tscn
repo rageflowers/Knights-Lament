@@ -1,0 +1,210 @@
+[gd_scene load_steps=4 format=3 uid="uid://y2dgrkvgkwcq"]
+
+[ext_resource type="Script" uid="uid://busgoeg4hi036" path="res://battle_screen.gd" id="1_3047d"]
+[ext_resource type="PackedScene" uid="uid://yh2jf1581xqk" path="res://battle_actor.tscn" id="2_duuuk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3047d"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="BattleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_3047d")
+
+[node name="RootVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StageFrame" type="PanelContainer" parent="RootVBox"]
+custom_minimum_size = Vector2(1024, 420)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3047d")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="RootVBox/StageFrame"]
+layout_mode = 2
+
+[node name="StageViewport" type="SubViewport" parent="RootVBox/StageFrame/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(512, 420)
+render_target_update_mode = 4
+
+[node name="Stage" type="Node2D" parent="RootVBox/StageFrame/SubViewportContainer/StageViewport"]
+
+[node name="Backdrop" type="Sprite2D" parent="RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage"]
+
+[node name="PlayerAnchor" type="Marker2D" parent="RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage"]
+position = Vector2(200, 258)
+
+[node name="EnemyAnchor" type="Marker2D" parent="RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage"]
+position = Vector2(808, 242)
+
+[node name="PlayerActor" type="Node2D" parent="RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage"]
+
+[node name="Sprite2D" type="Sprite2D" parent="RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage/PlayerActor"]
+position = Vector2(168, 224)
+
+[node name="EnemyActor" parent="RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage" instance=ExtResource("2_duuuk")]
+
+[node name="UIFrame" type="PanelContainer" parent="RootVBox"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 348)
+layout_mode = 2
+
+[node name="UI" type="Control" parent="RootVBox/UIFrame"]
+layout_mode = 2
+
+[node name="UILayout" type="VBoxContainer" parent="RootVBox/UIFrame/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionMenu" type="HBoxContainer" parent="RootVBox/UIFrame/UI/UILayout"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+
+[node name="StrikeButton" type="Button" parent="RootVBox/UIFrame/UI/UILayout/ActionMenu"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Strike"
+
+[node name="GuardButton" type="Button" parent="RootVBox/UIFrame/UI/UILayout/ActionMenu"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Guard"
+
+[node name="OathButton" type="Button" parent="RootVBox/UIFrame/UI/UILayout/ActionMenu"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Oath"
+
+[node name="PotionButton" type="Button" parent="RootVBox/UIFrame/UI/UILayout/ActionMenu"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Potion"
+
+[node name="PrayButton" type="Button" parent="RootVBox/UIFrame/UI/UILayout/ActionMenu"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Pray"
+
+[node name="TopBarsRow" type="HBoxContainer" parent="RootVBox/UIFrame/UI/UILayout"]
+custom_minimum_size = Vector2(1024, 24)
+layout_mode = 2
+
+[node name="PlayerTopBar" type="ProgressBar" parent="RootVBox/UIFrame/UI/UILayout/TopBarsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="EnemyTopBar" type="ProgressBar" parent="RootVBox/UIFrame/UI/UILayout/TopBarsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+fill_mode = 1
+
+[node name="HUDRow" type="HBoxContainer" parent="RootVBox/UIFrame/UI/UILayout"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+
+[node name="LeftHUD" type="VBoxContainer" parent="RootVBox/UIFrame/UI/UILayout/HUDRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerNameLabel" type="Label" parent="RootVBox/UIFrame/UI/UILayout/HUDRow/LeftHUD"]
+layout_mode = 2
+text = "Sir Tigris Factorem"
+horizontal_alignment = 1
+
+[node name="TacticalDisp" type="HBoxContainer" parent="RootVBox/UIFrame/UI/UILayout/HUDRow/LeftHUD"]
+layout_mode = 2
+
+[node name="OathChargesLabel" type="Label" parent="RootVBox/UIFrame/UI/UILayout/HUDRow/LeftHUD/TacticalDisp"]
+custom_minimum_size = Vector2(120, 12)
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+
+[node name="OathBar" type="ProgressBar" parent="RootVBox/UIFrame/UI/UILayout/HUDRow/LeftHUD/TacticalDisp"]
+custom_minimum_size = Vector2(90, 12)
+layout_mode = 2
+
+[node name="PotionsLabel" type="Label" parent="RootVBox/UIFrame/UI/UILayout/HUDRow/LeftHUD/TacticalDisp"]
+custom_minimum_size = Vector2(120, 12)
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+
+[node name="GraceBar" type="ProgressBar" parent="RootVBox/UIFrame/UI/UILayout/HUDRow/LeftHUD/TacticalDisp"]
+custom_minimum_size = Vector2(90, 12)
+layout_mode = 2
+
+[node name="RightHUD" type="VBoxContainer" parent="RootVBox/UIFrame/UI/UILayout/HUDRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemyNameLabel" type="Label" parent="RootVBox/UIFrame/UI/UILayout/HUDRow/RightHUD"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+text = "Enemy"
+horizontal_alignment = 1
+
+[node name="IntentLabel" type="Label" parent="RootVBox/UIFrame/UI/UILayout/HUDRow/RightHUD"]
+custom_minimum_size = Vector2(110, 12)
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+horizontal_alignment = 1
+
+[node name="TextLog" type="RichTextLabel" parent="RootVBox/UIFrame/UI/UILayout"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+selection_enabled = true
+
+[node name="OathSpendPrompt" type="PanelContainer" parent="RootVBox/UIFrame/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.5
+offset_right = 123.5
+offset_bottom = 58.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootVBox/UIFrame/UI/OathSpendPrompt"]
+layout_mode = 2
+
+[node name="PromptLabel" type="Label" parent="RootVBox/UIFrame/UI/OathSpendPrompt/VBoxContainer"]
+layout_mode = 2
+text = "Spend how many Oath charges?"
+
+[node name="ButtonsRow" type="HBoxContainer" parent="RootVBox/UIFrame/UI/OathSpendPrompt/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spend1Button" type="Button" parent="RootVBox/UIFrame/UI/OathSpendPrompt/VBoxContainer/ButtonsRow"]
+layout_mode = 2
+text = "Solemn Oath"
+
+[node name="Spend2Button" type="Button" parent="RootVBox/UIFrame/UI/OathSpendPrompt/VBoxContainer/ButtonsRow"]
+layout_mode = 2
+text = "Dire Oath"

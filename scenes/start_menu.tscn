@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpo557kp0uwld"]
+
+[ext_resource type="Script" uid="uid://bsa1emda3shh7" path="res://scenes/start_menu.gd" id="1_ouf4f"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ouf4f")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Root"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="Root/Buttons"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="Root/Buttons"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadButton" type="Button" parent="Root/Buttons"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Load"
+
+[node name="QuitButton" type="Button" parent="Root/Buttons"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Quit Game"
+
+[node name="Status" type="Label" parent="Root"]
+layout_mode = 2
+
+[node name="LoadDialog" type="AcceptDialog" parent="."]
+size = Vector2i(150, 150)
+
+[node name="LoadList" type="ItemList" parent="LoadDialog"]
+offset_right = 40.0
+offset_bottom = 40.0

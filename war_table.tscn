@@ -1,0 +1,156 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3gqwbb3am7pn"]
+
+[ext_resource type="Script" uid="uid://cx2jvta2cghx6" path="res://war_table.gd" id="1_bqsk3"]
+
+[node name="WarTable" type="Control"]
+custom_minimum_size = Vector2(1024, 768)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_bqsk3")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 4
+
+[node name="Header" type="Label" parent="Root"]
+layout_mode = 2
+text = "War Table"
+
+[node name="ChapterList" type="ItemList" parent="Root"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InfoRow" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="PlayerInfo" type="PanelContainer" parent="Root/InfoRow"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="SheetMargin" type="MarginContainer" parent="Root/InfoRow/PlayerInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SheetVBox" type="VBoxContainer" parent="Root/InfoRow/PlayerInfo/SheetMargin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox"]
+layout_mode = 2
+text = "Character"
+
+[node name="StatsGrid" type="GridContainer" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox"]
+layout_mode = 2
+columns = 2
+
+[node name="LevelKey" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/StatsGrid"]
+layout_mode = 2
+text = "Level"
+
+[node name="LevelVal" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/StatsGrid"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="HpKey" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/StatsGrid"]
+layout_mode = 2
+text = "HP"
+
+[node name="HpVal" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/StatsGrid"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="XpKey" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/StatsGrid"]
+layout_mode = 2
+text = "XP"
+
+[node name="XpVal" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/StatsGrid"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="LivesKey" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/StatsGrid"]
+layout_mode = 2
+text = "Lives"
+
+[node name="LivesVal" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/StatsGrid"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="XpBarRow" type="HBoxContainer" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox"]
+layout_mode = 2
+
+[node name="XpBarKey" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/XpBarRow"]
+layout_mode = 2
+text = "XP Progress:"
+
+[node name="XpBarPct" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox/XpBarRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="XpBar" type="ProgressBar" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+show_percentage = false
+
+[node name="PerkTitle" type="Label" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox"]
+layout_mode = 2
+text = "Specializations:"
+
+[node name="PerkGrid" type="GridContainer" parent="Root/InfoRow/PlayerInfo/SheetMargin/SheetVBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 2
+columns = 2
+
+[node name="Spacer" type="Control" parent="Root/InfoRow"]
+layout_mode = 2
+
+[node name="SelectedInfo" type="PanelContainer" parent="Root/InfoRow"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SelMargin" type="MarginContainer" parent="Root/InfoRow/SelectedInfo"]
+layout_mode = 2
+
+[node name="SelVBox" type="VBoxContainer" parent="Root/InfoRow/SelectedInfo/SelMargin"]
+layout_mode = 2
+
+[node name="ChapterLine" type="Label" parent="Root/InfoRow/SelectedInfo/SelMargin/SelVBox"]
+layout_mode = 2
+
+[node name="StatusLine" type="Label" parent="Root/InfoRow/SelectedInfo/SelMargin/SelVBox"]
+layout_mode = 2
+
+[node name="EnemyLine" type="Label" parent="Root/InfoRow/SelectedInfo/SelMargin/SelVBox"]
+layout_mode = 2
+
+[node name="EnemyHpLine" type="Label" parent="Root/InfoRow/SelectedInfo/SelMargin/SelVBox"]
+layout_mode = 2
+
+[node name="RewardLine" type="Label" parent="Root/InfoRow/SelectedInfo/SelMargin/SelVBox"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="StartBattleButton" type="Button" parent="Root/Buttons"]
+layout_mode = 2
+text = "Start Battle"
+
+[node name="PerksButton" type="Button" parent="Root/Buttons"]
+layout_mode = 2
+text = "Specialize"
+
+[node name="SaveQuitButton" type="Button" parent="Root/Buttons"]
+layout_mode = 2
+text = "Save / Quit"

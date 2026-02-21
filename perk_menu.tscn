@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://2uws85m18qcw"]
+
+[ext_resource type="Script" uid="uid://d0hiyqluydj6e" path="res://perk_menu.gd" id="1_ubq1a"]
+
+[node name="PerkMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ubq1a")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="HeaderRow" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Root/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Specialize Ability"
+
+[node name="PointsLabel" type="Label" parent="Root/HeaderRow"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="Root/HeaderRow"]
+layout_mode = 2
+mouse_filter = 2
+columns = 3
+
+[node name="HPButton" type="Button" parent="Root/HeaderRow/Grid"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DefButton" type="Button" parent="Root/HeaderRow/Grid"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PotionButton" type="Button" parent="Root/HeaderRow/Grid"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StrikeButton" type="Button" parent="Root/HeaderRow/Grid"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OathButton" type="Button" parent="Root/HeaderRow/Grid"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GraceButton" type="Button" parent="Root/HeaderRow/Grid"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RegenButton" type="Button" parent="Root/HeaderRow/Grid"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Hint" type="Label" parent="Root/HeaderRow"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+text = "Spend points to endure longer. No trees. No locks."
+autowrap_mode = 3
+clip_text = true
+
+[node name="BackButton" type="Button" parent="Root/HeaderRow"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+text = "Back to War Table"

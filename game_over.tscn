@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://n3jnn6d0pbal"]
+
+[ext_resource type="Script" uid="uid://dntw1gv71nl5c" path="res://game_over.gd" id="1_y26ei"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y26ei")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Root"]
+layout_mode = 2
+text = "GAME OVER"
+
+[node name="Body" type="Label" parent="Root"]
+layout_mode = 2
+text = "No lives remain. Is this how the tale truly ends?"
+
+[node name="Buttons" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="Root/Buttons"]
+layout_mode = 2
+text = "New Game"
+
+[node name="QuitButton" type="Button" parent="Root/Buttons"]
+layout_mode = 2
+text = "Quit"

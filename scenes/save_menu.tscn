@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdqklele7leh2"]
+
+[ext_resource type="Script" uid="uid://nef0lcrxmkon" path="res://scenes/save_menu.gd" id="1_acml6"]
+
+[node name="SaveMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_acml6")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -189.5
+offset_right = 110.0
+offset_bottom = 189.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="SaveList" type="ItemList" parent="Root"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Root"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+
+[node name="SaveButton" type="Button" parent="Root/Buttons"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Save"
+
+[node name="BackButton" type="Button" parent="Root/Buttons"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Back"
+
+[node name="ExitButton" type="Button" parent="Root/Buttons"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Quit"
+
+[node name="Status" type="Label" parent="Root"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+vertical_alignment = 1

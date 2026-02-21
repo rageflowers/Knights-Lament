@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bs8csh7c78kf"]
+
+[node name="PresentationLayer" type="CanvasLayer"]
+layer = -100
+
+[node name="BG" type="Sprite2D" parent="."]
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
