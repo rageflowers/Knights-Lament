@@ -45,7 +45,7 @@ var enemy_actor: BattleActor
 @onready var player_anchor: Marker2D = $RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage/PlayerAnchor
 @onready var enemy_anchor: Marker2D = $RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage/EnemyAnchor
 
-@onready var player_sprite: Sprite2D = $RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage/PlayerActor/Sprite2D
+@onready var player_sprite: AnimatedSprite2D = $RootVBox/StageFrame/SubViewportContainer/StageViewport/Stage/PlayerActor/AnimatedSprite2D
 @onready var stage_viewport: SubViewport = $RootVBox/StageFrame/SubViewportContainer/StageViewport
 @onready var stage_container: SubViewportContainer = $RootVBox/StageFrame/SubViewportContainer
 
@@ -155,8 +155,10 @@ func _ready() -> void:
 	enemy_actor.apply_enemy(ch)
 
 	# Player placeholder tint (until you have player sprites)
-	if player_sprite.texture == null:
-		player_sprite.modulate = Color(0.8, 0.9, 1.0)
+	# Load player frames & play idle
+	var player_frames = preload("res://assets/sprites/player/tigris_idle_frames.tres")
+	player_sprite.sprite_frames = player_frames
+	player_sprite.play("idle")
 
 	# --- Presentation: background via registry ---
 	var bg := Backgrounds.get_battle_bg(int(GameState.selected_battle_index))
